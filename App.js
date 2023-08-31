@@ -4,6 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 import Swiper from "react-native-deck-swiper";
 import { data } from "./assets/data";
 import Card from "./components/Card";
+import { Entypo ,FontAwesome} from '@expo/vector-icons';
 
 export default function App() {
   
@@ -14,13 +15,37 @@ export default function App() {
         cards={data}
         cardIndex={index}
         renderCard={(card) => <Card data={card} />}
-        onSwiped={()=>{setIndex(index+1)}}
+        onSwiped={()=>{setIndex((index+1)%data.length)}}
+        infinite
         stackSize={5}
-        stackScale={25}
-        stackSeparation={10}
+        stackScale={5}
+        stackSeparation={20}
         backgroundColor={'#fff'}
-        disableBottomSwipe
-        disableTopSwipe
+        verticalSwipe={false}
+        overlayLabels={{
+          left:{
+            element:<Entypo name="circle-with-cross" size={50} color="red" />,
+            style: {
+              wrapper: {
+                flexDirection: 'column',
+                alignItems: 'flex-end',
+                justifyContent: 'flex-start',
+                paddingRight:5,
+              }
+            }
+          },
+          right:{
+            element:<FontAwesome name="check-circle" size={50} color="green" />,
+            style: {
+              wrapper: {
+                flexDirection: 'column',
+                alignItems: 'flex-start',
+                justifyContent: 'flex-start',
+                paddingLeft:5,
+              }
+            }
+          }
+        }}
       />
       <StatusBar style="auto" />
     </View>

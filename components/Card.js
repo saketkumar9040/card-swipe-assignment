@@ -13,8 +13,10 @@ export default Card;
 
 const styles = StyleSheet.create({
   cardContainer: {
-    flex: 0.6,
-   
+    flex: 0.7,
+    width:"326px",
+    height:"500px",
+    borderRadius:5,
     shadowColor: "#000",
     shadowOpacity: 0.08,
     shadowOffset: {
