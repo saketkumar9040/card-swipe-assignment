@@ -24,7 +24,7 @@ export default function App() {
         verticalSwipe={false}
         overlayLabels={{
           left:{
-            element:<Entypo name="circle-with-cross" size={50} color="red" />,
+            element:<Entypo name="circle-with-cross" size={60} color="red" />,
             style: {
               wrapper: {
                 flexDirection: 'column',
@@ -35,7 +35,7 @@ export default function App() {
             }
           },
           right:{
-            element:<FontAwesome name="check-circle" size={50} color="green" />,
+            element:<FontAwesome name="check-circle" size={60} color="green" />,
             style: {
               wrapper: {
                 flexDirection: 'column',
