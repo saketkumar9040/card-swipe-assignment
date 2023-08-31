@@ -12,16 +12,16 @@ export const data = [
   {
     id: 3,
     name: "third",
-    color: "yellow",
+    color: "#FFDB58",
   },
   {
     id: 4,
     name: "fourth",
-    color: "orange",
+    color: "#F28C28",
   },
   {
     id: 5,
     name: "fifth",
-    color: "red",
+    color: "#FF3131",
   },
 ];
