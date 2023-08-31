@@ -2,12 +2,12 @@ export const data = [
   {
     id: 1,
     name: "first",
-    color: "blue",
+    color: "#89CFF0",
   },
   {
     id: 2,
     name: "second",
-    color: "green",
+    color: "#00FF7F",
   },
   {
     id: 3,

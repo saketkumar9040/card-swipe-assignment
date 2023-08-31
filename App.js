@@ -16,9 +16,11 @@ export default function App() {
         renderCard={(card) => <Card data={card} />}
         onSwiped={()=>{setIndex(index+1)}}
         stackSize={5}
-        stackScale={19}
+        stackScale={25}
         stackSeparation={10}
         backgroundColor={'#fff'}
+        disableBottomSwipe
+        disableTopSwipe
       />
       <StatusBar style="auto" />
     </View>
@@ -28,6 +30,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginTop:80,
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
