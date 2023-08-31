@@ -2,7 +2,7 @@ export const data = [
   {
     id: 1,
     name: "first",
-    color: "#89CFF0",
+    color: "#7DF9FF",
   },
   {
     id: 2,
