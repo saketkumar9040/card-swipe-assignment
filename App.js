@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState,useRef } from "react";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View ,Animated} from "react-native";
 import Swiper from "react-native-deck-swiper";
 import { data } from "./assets/data";
 import Card from "./components/Card";
@@ -9,19 +9,38 @@ import { Entypo ,FontAwesome} from '@expo/vector-icons';
 export default function App() {
   
   const [index, setIndex] = useState(0);
+
+  const transitionNext = () => {
+   
+      Animated.parallel([
+        Animated.spring(scale, {
+          toValue: 1,
+          friction: 4,
+          useNativeDriver: false,
+        }),
+      ]).start(() => { 
+        setData((data) => {
+          return data.pop().unShift()
+        });
+      });
+   };
+
+  const scale = useRef(new Animated.Value(0.9)).current;
   return (
-    <View style={styles.container}>
+    <Animated.View style={styles.container} transitionNext>
       <Swiper
         cards={data}
         cardIndex={index}
         renderCard={(card) => <Card data={card} />}
         onSwiped={()=>{setIndex((index+1)%data.length)}}
         infinite
+        useViewOverflow={true}
         stackSize={5}
         stackScale={5}
-        stackSeparation={20}
+        stackSeparation={17}
         backgroundColor={'#fff'}
-        verticalSwipe={false}
+        disableBottomSwipe
+        disableTopSwipe
         overlayLabels={{
           left:{
             element:<Entypo name="circle-with-cross" size={60} color="red" />,
@@ -48,7 +67,7 @@ export default function App() {
         }}
       />
       <StatusBar style="auto" />
-    </View>
+    </Animated.View>
   );
 }
 
