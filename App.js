@@ -10,22 +10,6 @@ export default function App() {
   
   const [index, setIndex] = useState(0);
 
-  const transitionNext = () => {
-   
-      Animated.parallel([
-        Animated.spring(scale, {
-          toValue: 1,
-          friction: 4,
-          useNativeDriver: false,
-        }),
-      ]).start(() => { 
-        setData((data) => {
-          return data.pop().unShift()
-        });
-      });
-   };
-
-  const scale = useRef(new Animated.Value(0.9)).current;
   return (
     <Animated.View style={styles.container} transitionNext>
       <Swiper
